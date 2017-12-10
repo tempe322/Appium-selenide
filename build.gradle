@@ -1,0 +1,26 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+defaultTasks 'clean', 'test'
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.assertj:assertj-core:3.8.0'
+    testCompile 'io.appium:java-client:5.0.4'
+    testCompile 'com.codeborne:selenide:4.8'
+    testCompile 'com.testdroid:testdroid-api:2.49'
+    compile 'org.apache.httpcomponents:httpclient:4.5.4'
+    compile 'commons-lang:commons-lang:2.6'
+    compile 'com.googlecode.json-simple:json-simple:1.1.1'
+    compile 'com.google.code.gson:gson:2.8.2'
+    compile 'com.google.http-client:google-http-client:1.23.0'
+    compile 'com.google.http-client:google-http-client-jackson2:1.23.0'
+}
+
+[compileJava, compileTestJava]*.options.collect {options -> options.encoding = 'UTF-8'} 
+[compileJava, compileTestJava]*.options.collect {options -> options.debug = true}
